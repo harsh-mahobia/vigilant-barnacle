@@ -1,0 +1,6 @@
+langchain
+langchain-community 
+lmstudio 
+youtube_transcript_api
+faiss
+langchain_openai

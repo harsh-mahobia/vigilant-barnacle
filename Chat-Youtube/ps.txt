@@ -1,0 +1,14 @@
+
+
+a chat bot that can tell anything about long video of youtube. 
+1. So that you don't have to search much for a particular part 
+2. No Brain Storming for useless task
+
+
+action plan 
+
+1. get those transcripts - D
+2. create chunks - D
+3. Embedd those Chunks - D
+4. store on the vector store - D
+5. 
