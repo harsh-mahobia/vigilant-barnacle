@@ -1,1 +1,2 @@
-[Youtube Transcript Answering Bot](./demo-vids/youtube.mp4)
+[Youtube Transcript Answering Bot](./demo-vids/youtube.gif)
+
