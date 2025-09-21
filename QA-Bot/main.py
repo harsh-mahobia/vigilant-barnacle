@@ -14,7 +14,7 @@ if "file_name" not in st.session_state:
 if uploaded_file is not None:
     if uploaded_file.name != st.session_state.file_name:
         with st.spinner("Processing data... Please wait."):
-            st.session_state.bot = BOT(uploaded_file.name)
+            st.session_state.bot = BOT(uploaded_file.getvalue().decode("utf-8"))
             st.session_state.file_name = uploaded_file.name
         st.success("Process completed!")
 
@@ -36,7 +36,14 @@ if st.session_state.bot is not None:
     if st.button("Ask"):
         output = ""
         with st.spinner("answering..."):
-            st.session_state.bot = BOT(uploaded_file.name)
-            st.session_state.file_name = uploaded_file.name
             output = st.session_state.bot.query(search_query)
         st.write(output)
+
+# if st.session_state.bot is not None:
+#     search_query = st.text_input("Enter your Question")
+#     if st.button("Ask"):
+#         if search_query.strip() != "":
+#             with st.spinner("Answering..."):
+#                 # Do NOT recreate the BOT here!
+#                 output = st.session_state.bot.query(search_query)
+#             st.write(output)

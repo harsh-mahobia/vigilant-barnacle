@@ -26,12 +26,11 @@ class BOT:
             Answer:""",
         input_variables = ["context", "question"]
     )
-    def __init__(self, file):
+    def __init__(self, text):
         self._initialize_chat_model()
         self._initialize_model()
         self.embeddings = NewEmbeddings()
-        self._text_loader(file)
-        self._split()
+        self._split(text)
         self._create_store()
 
     def query(self, question):
@@ -48,19 +47,18 @@ class BOT:
     def _initialize_model(self):
         self.model = self.prompt | self.llm | StrOutputParser()
 
-    def _text_loader(self, file):
-        self.text_loader = TextLoader(file, encoding='utf-8')
 
-    def _split(self):
+    def _split(self, text: str):
         splitter = RecursiveCharacterTextSplitter(chunk_overlap=50, chunk_size=200)
-        self.docs = self.text_loader.load_and_split(splitter)
+        self.docs = splitter.create_documents([text])
+        
     
     def _create_store(self):
         self.vector_store = FAISS.from_documents(self.docs, self.embeddings)
     
     def _get_context(self, question):
-        query_vector = self.embeddings.embed([question])[0]
-        searched_docs = self.vector_store.similarity_search_by_vector(query_vector, k=5)
+        query_vector = self.embeddings.embed_query(question)
+        searched_docs = self.vector_store.similarity_search_by_vector(query_vector, k=3)
         context_text = "\n".join(doc.page_content for doc in searched_docs)
         return context_text
 
