@@ -1,1 +1,1 @@
-<iframe width="560" height="315" src="[https://www.youtube.com/embed/VIDEO_ID](https://www.loom.com/share/0faf185d3420434a95ec76befdff21bf?sid=5b4c780c-4a15-4063-b77b-e7635dc8c39b)" frameborder="0" allowfullscreen></iframe>
+[Youtube Transcript Answering Bot](./demo-vids/youtube.mp4)
