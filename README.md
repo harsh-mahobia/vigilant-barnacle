@@ -1,2 +1,2 @@
-[Youtube Transcript Answering Bot](./demo-vids/youtube.gif)
+![Youtube Transcript Answering Bot](./demo-vids/youtube.gif)
 
