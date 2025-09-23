@@ -11,4 +11,6 @@ action plan
 2. create chunks - D
 3. Embedd those Chunks - D
 4. store on the vector store - D
-5. 
+5. Embed user query
+6. Similarity Search
+7. LLM Response(query + context)
